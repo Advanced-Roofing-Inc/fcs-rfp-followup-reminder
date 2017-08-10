@@ -1,0 +1,15 @@
+{
+  "name": "fcs-rfp-followup-reminder",
+  "private": true,
+  "author": "Dylan Foster",
+  "description": "Send email reminders for followup on RFPs",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "moment": "^2.18.1",
+    "mysql": "^2.14.1"
+  }
+}
