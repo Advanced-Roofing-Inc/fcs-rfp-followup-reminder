@@ -9,7 +9,9 @@
     "start": "node src/index.js"
   },
   "dependencies": {
+    "he": "^1.1.1",
     "moment": "^2.18.1",
-    "mysql": "^2.14.1"
+    "mysql": "^2.14.1",
+    "nodemailer": "^4.0.1"
   }
 }
