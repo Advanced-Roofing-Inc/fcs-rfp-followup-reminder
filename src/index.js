@@ -1,6 +1,7 @@
 const mysql = require('mysql');
 const moment = require('moment');
 const he = require('he');
+
 const config = require('../config/config.json');
 
 const dateFormat = 'YYYY-MM-DD 00:00:00';
@@ -8,7 +9,7 @@ const today = moment('2017-07-17');
 const targetDates = [];
 
 try {
-  config.rfpAges.forEach(numDays => {
+  config.rfpAges.forEach((numDays) => {
     const dateString = moment(today).subtract(numDays, 'days').format(dateFormat);
     targetDates.push(dateString);
   });
@@ -35,14 +36,13 @@ conn.query(sql, [targetDates], (error, results) => {
     process.exit(1);
     return;
   }
-  
-  results.forEach(result => {
-    const creationDate = moment(result['creation_date']).format('MM/DD/YY');
-    console.log(creationDate, he.decode(result['site_name']));
+
+  results.forEach((result) => {
+    const creationDate = moment(result.creation_date).format('MM/DD/YY');
+    console.log(creationDate, he.decode(result.site_name));
 
     // send email here
     // const { createEmail, sendEmail } = require('./email');
-
   });
 });
 

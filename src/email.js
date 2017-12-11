@@ -24,21 +24,22 @@ const createEmail = (data) => {
     to: 'Dylan Test <dylan@dylantest.com>',
     subject: 'RFP Followup Reminder',
     text: 'Sorry, the message cannot be displayed because your email client does not support HTML.',
-    html
+    html,
   };
 };
 
 const sendEmail = (emailOptions) => {
   transporter.sendMail(emailOptions, (error, info) => {
     if (error) {
-      return console.error(error);
+      console.error(error);
+      return;
     }
-    
+
     console.log('Mail sent:', info);
   });
 };
 
 module.exports = {
   createEmail,
-  sendEmail
+  sendEmail,
 };
