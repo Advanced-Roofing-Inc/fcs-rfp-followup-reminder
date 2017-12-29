@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const ejs = require('ejs');
 const nodemailer = require('nodemailer');
-const config = require('../config/config.json');
+const config = require('./config');
 
 const transporter = nodemailer.createTransport(config.email);
 

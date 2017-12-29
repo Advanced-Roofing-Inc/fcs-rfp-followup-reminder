@@ -9,8 +9,10 @@
     "start": "node ./src/index.js"
   },
   "dependencies": {
+    "dotenv": "^4.0.0",
     "ejs": "^2.5.7",
     "he": "^1.1.1",
+    "joi": "^13.0.2",
     "moment": "^2.18.1",
     "mysql": "^2.14.1",
     "nodemailer": "^4.0.1",

@@ -2,12 +2,20 @@ const mysql = require('mysql');
 const moment = require('moment');
 const he = require('he');
 
-const config = require('../config/config.json');
+const config = require('./config');
 const { createEmail, sendEmail } = require('./email');
 
+// console.log('config:', config.email);
+// process.exit(0);
+
 const dateFormat = 'YYYY-MM-DD 00:00:00';
-// const today = moment('2017-07-17');
-const today = moment();
+let today;
+if (config.env === 'development') {
+  today = moment('2017-07-17');
+} else {
+  today = moment();
+}
+
 const targetDates = [];
 
 try {
@@ -40,7 +48,8 @@ conn.query(sql, [targetDates], (error, results) => {
   }
 
   results.forEach((result) => {
-    const { to, creation_date, site_name } = result; // eslint-disable-line camelcase
+    const { Email, creation_date, site_name } = result; // eslint-disable-line camelcase
+    const to = Email;
     const creationDate = moment(creation_date);
     const dateDiff = moment(today).diff(creationDate, 'days');
 
