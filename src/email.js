@@ -9,19 +9,19 @@ const transporter = nodemailer.createTransport(config.email);
 const emailTemplatePath = path.join(__dirname, 'templates', 'reminder.ejs');
 const emailTemplateFile = fs.readFileSync(emailTemplatePath, 'utf8');
 
-const createEmail = (data) => {
+const createEmail = (to, from, emailData) => {
   let html;
 
   try {
-    html = ejs.compile(emailTemplateFile)(data);
+    html = ejs.compile(emailTemplateFile)(emailData);
   } catch (err) {
     console.error('Error parsing email template.', err);
     process.exit(1);
   }
 
   return {
-    from: 'Dylan Tester <dylan@testsender.com>',
-    to: 'Dylan Test <dylan@dylantest.com>',
+    to,
+    from,
     subject: 'RFP Followup Reminder',
     text: 'Sorry, the message cannot be displayed because your email client does not support HTML.',
     html,
