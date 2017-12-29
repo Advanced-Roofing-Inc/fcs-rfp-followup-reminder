@@ -1,5 +1,5 @@
 # Requirements
-- Node.js (http://nodejs.org) 9.3 or higher [(download)](http://nodejs.org)
+- Node.js 9.3 or higher [(download)](https://nodejs.org)
 
 # Setup
 - Install project dependencies by running `npm install` from within the project root.
