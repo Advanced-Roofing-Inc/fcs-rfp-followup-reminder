@@ -1,0 +1,15 @@
+@ECHO OFF
+SET NODE_ENV=production
+SET DB_HOST=127.0.0.1
+SET DB_USER=username
+SET DB_PASSWORD=password
+SET DB_DATABASE=app_contractors
+SET EMAIL_HOST=mailtrap.io
+SET EMAIL_PORT=25
+SET EMAIL_SECURE=false
+SET EMAIL_USER=username
+SET EMAIL_PASS=password
+SET EMAIL_FROM="Team <team@advancedroofing.com>"
+SET RFP_AGES=3,7,14,30,60,90
+
+cmd /c C:\full\path\to\fcs-rfp-followup-reminder.exe
