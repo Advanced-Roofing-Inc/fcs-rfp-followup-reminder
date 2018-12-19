@@ -13,13 +13,13 @@
     "dotenv": "^4.0.0",
     "ejs": "^2.5.7",
     "he": "^1.1.1",
-    "joi": "^13.0.2",
+    "joi": "^14.3.0",
     "moment": "^2.21.0",
     "mysql": "^2.14.1",
     "nodemailer": "^4.0.1"
   },
   "devDependencies": {
-    "eslint": "^4.13.0",
+    "eslint": "^5.10.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
