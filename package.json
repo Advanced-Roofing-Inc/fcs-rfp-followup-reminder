@@ -7,7 +7,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node ./src/index.js",
-    "build": "pkg -t node8-win package.json -o fcs-rfp-followup-reminder.exe"
+    "build": "pkg -t node12-win package.json -o fcs-rfp-followup-reminder.exe"
   },
   "dependencies": {
     "dotenv": "^4.0.0",
