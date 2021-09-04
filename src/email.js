@@ -4,7 +4,11 @@ const ejs = require('ejs');
 const nodemailer = require('nodemailer');
 const config = require('./config');
 
-const transporter = nodemailer.createTransport(config.email);
+const transporter = nodemailer.createTransport({
+  ...config.email,
+  pool: true,
+  maxConnections: 1,
+});
 
 const emailTemplatePath = path.join(__dirname, 'templates', 'reminder.ejs');
 const emailTemplateFile = fs.readFileSync(emailTemplatePath, 'utf8');
