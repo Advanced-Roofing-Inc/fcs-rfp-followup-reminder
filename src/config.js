@@ -11,17 +11,23 @@ const envVarsSchema = Joi.object({
   DB_DATABASE: Joi.string().required(),
   EMAIL_HOST: Joi.string().required(),
   EMAIL_PORT: Joi.number().required(),
-  EMAIL_SECURE: Joi.bool().required(),
+  // EMAIL_SECURE: Joi.bool().required(),
   EMAIL_USER: Joi.string().required(),
   EMAIL_PASS: Joi.string().required(),
   EMAIL_FROM: Joi.string().required(),
-  RFP_AGES: Joi.string().regex(/^\d+(?:,\d+)*$/).required(), // e.g. "7" or "7,14,120"
-}).unknown().required();
+  RFP_AGES: Joi.string()
+    .regex(/^\d+(?:,\d+)*$/)
+    .required(), // e.g. "7" or "7,14,120"
+})
+  .unknown()
+  .required();
 
 const { error, value: envVars } = Joi.validate(process.env, envVarsSchema);
 
 if (error) {
-  console.error(`Error processing configuration file! Exiting.\n${error.message}`);
+  console.error(
+    `Error processing configuration file! Exiting.\n${error.message}`
+  );
   process.exit(1);
 }
 
@@ -36,7 +42,7 @@ const config = {
   email: {
     host: envVars.EMAIL_HOST,
     port: envVars.EMAIL_PORT,
-    secure: envVars.EMAIL_SECURE,
+    secure: envVars.EMAIL_SECURE === 'true',
     auth: {
       user: envVars.EMAIL_USER,
       pass: envVars.EMAIL_PASS,
