@@ -9,7 +9,7 @@ SET EMAIL_PORT=25
 SET EMAIL_SECURE=false
 SET EMAIL_USER=username
 SET EMAIL_PASS=password
-SET EMAIL_FROM="Team <team@advancedroofing.com>"
+SET "EMAIL_FROM=Team <team@advancedroofing.com>"
 SET RFP_AGES=3,7,14,30,60,90
 
 cmd /c C:\full\path\to\fcs-rfp-followup-reminder.exe

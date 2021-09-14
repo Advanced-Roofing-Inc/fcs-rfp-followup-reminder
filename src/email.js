@@ -35,16 +35,17 @@ const createEmail = (to, from, emailData) => {
   };
 };
 
-const sendEmail = (emailOptions) => {
-  transporter.sendMail(emailOptions, (error, info) => {
-    if (error) {
-      console.error(error);
-      return;
-    }
+const sendEmail = (emailOptions) =>
+  new Promise((resolve, reject) => {
+    transporter.sendMail(emailOptions, (error, info) => {
+      if (error) {
+        reject(error);
+        return;
+      }
 
-    console.log('Mail sent:', info);
+      resolve(info);
+    });
   });
-};
 
 module.exports = {
   createEmail,

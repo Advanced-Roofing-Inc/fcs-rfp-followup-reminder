@@ -2,6 +2,9 @@
   "extends": "airbnb",
 
   "rules": {
-    "no-console": 0
+    "no-console": 0,
+    "no-await-in-loop": 0,
+    "operator-linebreak": 0,
+    "implicit-arrow-linebreak": 0
   }
 }
